@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if valido %}
+        <h1>Bienvenido {{username}}</h1>
+    {% elif not primero %}
+        <h1>Credenciales Incorrectas</h1>
+    {% endif %}
+        
+    
+    <h1>Inicio de sesion</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" name="username" id="username">
+        </p>
+        <p>
+            <label for="password">Contrasena</label>
+            <input type="password" name="password" id="password">
+        </p>
+
+        <button type="submit">Ingresar</button>
+     </form>
+</body>
+</html>

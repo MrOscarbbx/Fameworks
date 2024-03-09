@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+<title>Lista de Unidades</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<h1>Unidades Academicas</h1>
+<a class="btn btn-primary" href="{% url 'nueva_unidad' %}">Nueva Unidad</a>
+<table class="table" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for unidad in unidades %}
+        <tr>
+            <td>{{unidad.id}}</td>
+            <td>{{unidad.nombre}}</td>
+            <td>{{unidad.descripcion}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Eliminar
+                </button>
+                <a class="btn btn-outline-secondary" href="{% url 'editar_unidad' unidad.id %}">Actualizar</a>
+            </td>
+        </tr>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Estas seguro que quieres eliminar?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a class="btn btn-outline-danger" href="{% url 'eliminar_unidad' unidad.id %}">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock contenido %}
+
+
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Nueva unidad     
+{% endblock titulo %}
+    
+
+
+{% block contenido %}
+    <body>
+        <h1>Actualizar Programa</h1>
+        <form class="form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Agregar</button>
+            <a href="{% url 'lista_programas_academicos' %}">Cancelar</a>
+        </form>
+    </body>
+{% endblock contenido %}
+    

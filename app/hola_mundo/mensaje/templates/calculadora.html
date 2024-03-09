@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Perrona</title>
+</head>
+<body>
+    
+    {% if valido %}
+        <h1>El resultado es = {{respuesta}} </h1>
+    {% endif %}
+        
+    <h1>Calculadora</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="primerNumero">A</label>
+            <input type="number" name="primerNumero" id="primerNumero">
+        </p>
+        <p>
+            <label for="segundoNumero">B</label>
+            <input type="number" name="segundoNumero" id="segundoNumero">
+        </p>
+
+        <button type="submit">Calcular</button>
+     </form>
+</body>
+</html>

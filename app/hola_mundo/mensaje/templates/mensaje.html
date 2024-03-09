@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hola mundo</h1>
+    <p>Bienvenido <b>{{nombre}}</b>, estás en el semestre: <b>{{semestre}}</b></p>
+    <br>
+    <hr>
+    <br>
+    <ul>
+        {% for materia in materias %}
+        <li>{{materia}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Materia</th>
+                <th>Calificación</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for calif in calificaciones %}
+            <tr>
+                <td>{{calif.materia}}</td>
+                <td>{{calif.calificacion}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>
